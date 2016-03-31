@@ -11,20 +11,23 @@ import {ModalDialogInstance} from '../models/ModalDialogInstance';
         'tabindex': '0',
         'role': 'dialog',
         'class': 'in modal',
-        'style': 'display: block',
+        'style': 'display: table; width: 100%; height: 100%',
         '[style.position]': 'position',
         '(body:keydown)': 'documentKeypress($event)',
         '(click)': 'onClick()'
     },
     /* tslint:disable */
     template:
-    `<div class="modal-dialog"
-         [class.modal-lg]="dialogInstance.config.size == \'lg\'"
-         [class.modal-sm]="dialogInstance.config.size == \'sm\'">
-         <div class="modal-content" (click)="onContainerClick($event)" style="display: block">
-            <div style="display: none" #modalDialog></div>
-         </div>
-    </div>`
+    `<div class="modal-center">
+        <div class="modal-dialog"
+             [class.modal-lg]="dialogInstance.config.size == \'lg\'"
+             [class.modal-sm]="dialogInstance.config.size == \'sm\'">
+             <div class="modal-content" (click)="onContainerClick($event)" style="display: block">
+                <div style="display: none" #modalDialog></div>
+             </div>
+        </div>
+    </div>`,
+    styles: ['.modal-center {display: table-cell; vertical-align: center;}']
     //TODO: #modalDialog element is not needed but dynamicComponentLoader doesn't seem to have behavior to inject a component the way we want.
     //      We need to replace the #modalDialog element but the current implementation only adds it as a sibling.
     //      see https://github.com/angular/angular/issues/6071
