@@ -11,7 +11,7 @@ import {ModalDialogInstance} from '../models/ModalDialogInstance';
         'tabindex': '0',
         'role': 'dialog',
         'class': 'in modal',
-        'style': 'display: table; width: 100%; height: 100%',
+        'style': 'display: table; width: 100%; height: 100%; z-index: 1040',
         '[style.position]': 'position',
         '(body:keydown)': 'documentKeypress($event)',
         '(click)': 'onClick()'
